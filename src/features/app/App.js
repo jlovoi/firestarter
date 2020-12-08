@@ -22,17 +22,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const App = ({ history, handleLogout }) => {
+const App = ({ history }) => {
   const classes = useStyles();
 
   return (
     <AppFrame>
       <Router history={history}>
         <ThemeProvider theme={theme}>
-          <Header handleLogout={handleLogout} />
           <div className={classes.appFlex}>
             <div className={classes.appContent}>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={() => <div>HELLO WORLD!</div>} />
             </div>
           </div>
         </ThemeProvider>
@@ -41,4 +40,4 @@ const App = ({ history, handleLogout }) => {
   );
 };
 
-export default withAuth(App);
+export default App;
